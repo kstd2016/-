@@ -1,5 +1,6 @@
 let 封装API = require(engines.myEngine().cwd() +"/封装API.js");
 //叔叔不约滑块类型captchaType:1318
+toastLog("开始运行叔叔不约脚本...")
 if(!requestScreenCapture()){
     toast("请求截图失败");
     exit();
@@ -108,7 +109,7 @@ function 进入叔叔不约(){
     }
     封装API.id("a06").click();
     封装API.id("aks").click()
-    封装API.id("alh").click()
+    封装API.id("lh").click()
     if(text("立即提速").exists()==true){
         封装API.id("alh").click()
     }
@@ -239,10 +240,10 @@ function 开始聊天(){
             封装API.id("alh").click()
         }
         if(text("窗口").id("bku").exists()==true){
-            log("找到浏览器窗口空控件...");
+            log("找到浏览器窗口控件...");
             封装API.id("a06").click();
-            封装API.等待(1000,2000);
-            进入叔叔不约();
+            封装API.等待(1000,2000)
+            进入叔叔不约()
             break;
         }
         if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
