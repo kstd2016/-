@@ -86,11 +86,15 @@ function 进入叔叔不约(){
             break;
         }
         if(id("aks").exists()==true){
-            封装API.id("aks").click()
+            封装API.id("aks").click();
             break;
         }
         if(id("a06").exists()==true){
             封装API.id("a06").click();
+            break;
+        }
+        if(text("立即提速").exists()==true){
+            封装API.id("alh").click();
             break;
         }
     }
@@ -104,7 +108,7 @@ function 进入叔叔不约(){
     }
     封装API.id("a06").click();
     封装API.id("aks").click()
-    封装API.id("lh").click()
+    封装API.id("alh").click()
     if(text("立即提速").exists()==true){
         封装API.id("alh").click()
     }
@@ -830,6 +834,7 @@ function 接码模块(){
                             封装API.idCon("reload").click()//刷新按钮,更换图片
                         }
                     }
+                    else{封装API.idCon("reload").click()}
                 }
             }
             else{封装API.idCon("reload").click()}
