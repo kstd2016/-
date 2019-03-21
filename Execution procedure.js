@@ -757,8 +757,6 @@ function 删除分身APP(){
         }
         else{    sleep(3000)}
     }
-
-
     sleep(2000)
     封装API.text("删除分身").click() 
     sleep(2000)
@@ -766,7 +764,6 @@ function 删除分身APP(){
     封装API.text("确定").click() 
     sleep(2000)
     home();
-
 }
 function 接码模块(){
     for(let a=0;a<10;a++){
@@ -782,6 +779,7 @@ function 接码模块(){
                 var 滑块按钮坐标Y1 = 滑块按钮坐标.top
                 log(滑块按钮坐标Y1)
                 if(滑块按钮坐标X1>="50"){
+                    log("1号方案")
                     滑块 = className("Image").idContains("slideBg").findOne(1000)
                     if(滑块!=null){
                         滑块图片 = 滑块.bounds()
@@ -798,12 +796,14 @@ function 接码模块(){
                             拼图坐标X = parseInt(拼图坐标[0])
                             拼图坐标Y = parseInt(拼图坐标[1])
                             log("拼图坐标X===>"+拼图坐标X);
-                            log("拼图坐标Y===>"+拼图坐标Y)
                             sleep(1000)
                             var ra = new RootAutomator();
                             ra.swipe(滑块按钮坐标X1+10,滑块按钮坐标Y1+10,拼图坐标X+15,滑块按钮坐标Y1+10,2000)
                             sleep(1000)
                             ra.exit()
+                        }
+                        else{
+                            封装API.idCon("reload").click()//刷新按钮,更换图片
                         }
                     }
                 }
