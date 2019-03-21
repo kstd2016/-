@@ -778,7 +778,7 @@ function 接码模块(){
                 log(滑块按钮坐标X1)
                 var 滑块按钮坐标Y1 = 滑块按钮坐标.top
                 log(滑块按钮坐标Y1)
-                if(滑块按钮坐标X1>="50"){
+                if(滑块按钮坐标X1>="100"){
                     log("1号方案")
                     滑块 = className("Image").idContains("slideBg").findOne(1000)
                     if(滑块!=null){
