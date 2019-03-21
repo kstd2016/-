@@ -2,7 +2,9 @@ let 易码API = {
     登陆:function(账号,密码){
         var urls = http.get("http://api.fxhyd.cn/UserInterface.aspx?action=login&username="+账号+"&password="+密码)
         if(urls.statusMessage=="OK"){
-            return urls.token
+            获取token = urls.body.string().split("|")
+            token = 获取token[1]
+            return token
         }
         else{
             toastLog("登陆失败！\n原因："+urls.statusMessage)
