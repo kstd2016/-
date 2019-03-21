@@ -239,10 +239,10 @@ function 开始聊天(){
             封装API.id("alh").click()
         }
         if(text("窗口").id("bku").exists()==true){
-            log("找到浏览器窗口空控件...").
+            log("找到浏览器窗口空控件...");
             封装API.id("a06").click();
-            封装API.等待(1000,2000)
-            进入叔叔不约()
+            封装API.等待(1000,2000);
+            进入叔叔不约();
             break;
         }
         if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
