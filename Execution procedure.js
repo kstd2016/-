@@ -154,7 +154,8 @@ function 进入叔叔不约(){
             sleep(500)
             text("手机号").setText(获取号码)//手机号码
             sleep(500)
-            超级点击("点击获取")
+            封装API.text("点击获取").click();
+            封装API.desc("点击获取").click();
             sleep(500)
             text("密码(至少需要6位)").setText("abcd1995")//密码
             sleep(500)
@@ -203,6 +204,7 @@ function 进入叔叔不约(){
                 log("获取验证码失败,开始释放号码...")
             }
             else if(获取验证码=="3001"){
+                toastLog("获取验证码3001")
                 封装API.id("a06").click();
                 封装API.等待(1000,2000)
                 进入叔叔不约()
