@@ -786,7 +786,7 @@ function 接码模块(){
                     var Y1 = 滑块图片.top
                     var X2 = 滑块图片.right
                     var Y2 = 滑块图片.bottom
-                    var 联众打码API = require('./联众打码API');
+                    var 联众打码API = require('./联众API');
                     var 联众打码api = new 联众打码API(联众账号,联众密码);
                     坐标 = 联众打码api.打码(X1,Y1,X2-X1,Y2-Y1,"1318");
                     if(坐标 != "打码失败"){
