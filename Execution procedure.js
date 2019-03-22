@@ -593,8 +593,6 @@ function 多开分身(){
     封装API.id("iv_btn_create").click();
     for(let a=0;a<5;a++){
         sleep(1000)
-        封装API.随机上滑()
-        sleep(1000)
         if(text("猎豹浏览器").exists()==true){
             var 陌陌分身坐标 = text("猎豹浏览器").findOne(1000).parent().bounds()
             var X1 = 陌陌分身坐标.left
@@ -620,6 +618,9 @@ function 多开分身(){
                 }
             }
         }
+        sleep(1000)
+        封装API.随机上滑()
+
     }
     sleep(1000)
 }
@@ -806,6 +807,9 @@ function 接码模块(){
                             封装API.idCon("reload").click()//刷新按钮,更换图片
                         }
                     }
+                    else{
+                        封装API.idCon("reload").click()//刷新按钮,更换图片
+                    }
                 }
                 else{
                     log("2号方案")
@@ -835,7 +839,7 @@ function 接码模块(){
                             封装API.idCon("reload").click()//刷新按钮,更换图片
                         }
                     }
-                    else{封装API.idCon("reload").click()}
+                    else{封装API.idCon("reload").click()}//刷新按钮,更换图片
                 }
             }
             else{封装API.idCon("reload").click()}
