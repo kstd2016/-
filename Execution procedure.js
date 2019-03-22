@@ -791,7 +791,7 @@ function 接码模块(){
                         var Y2 = 滑块图片.bottom
                         var 联众打码API = require('./联众API');
                         var 联众打码api = new 联众打码API("kstd2016","Wentao1987223");
-                        坐标 = 联众打码api.打码(X1,Y1,X2-X1,Y2-Y1,"1318");
+                        坐标 = 联众打码api.打码(X1,Y1,X2-X1,Y2-Y1,"1318","1","1");
                         if(坐标 != "打码失败"){
                             拼图坐标 = 坐标.split(",")
                             拼图坐标X = parseInt(拼图坐标[0])
@@ -823,7 +823,7 @@ function 接码模块(){
                         var Y2 = 滑块图片.bottom
                         var 联众打码API = require('./联众API');
                         var 联众打码api = new 联众打码API("kstd2016","Wentao1987223");
-                        坐标 = 联众打码api.打码(X1,Y1,X2-X1,Y2-Y1,"1318");
+                        坐标 = 联众打码api.打码(X1,Y1,X2-X1,Y2-Y1,"1318","1","1");
                         if(坐标 != "打码失败"){
                             拼图坐标 = 坐标.split(",")
                             拼图坐标X = parseInt(拼图坐标[0])
