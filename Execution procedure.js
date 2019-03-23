@@ -143,6 +143,7 @@ function 进入叔叔不约(){
             break;
         } 
         else if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
+            toastLog("找到由于用户多次举报...")
             账号参数 = "账号已死"
             break;
         }                                                                                                                                                                                                
@@ -245,7 +246,7 @@ function 进入叔叔不约(){
 }
 function 开始聊天(){
     聊天判断 = 0
-    回复等待时长 = 9
+    回复等待时长 = 8
     变量A = 1
     聊天内容=[]
     for(let b=1;b<4;b++){
@@ -265,7 +266,8 @@ function 开始聊天(){
             break;
         }
         if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
-            log("找到由于用户多次举报...")
+            toastLog("找到由于用户多次举报...")
+            账号参数 = "账号已死"
         }
         if(textContains("由于实名制要求").exists()==true||descContains("由于实名制要求").exists()==true){
             log("找到由于实名制要求...")
@@ -318,7 +320,7 @@ function 开始聊天(){
     }
 }
 function 输入微信号(){
-    sleep(9000)
+    sleep(8000)
     setText(微信1)
     sleep(1000)
     超级点击("发送")
@@ -392,6 +394,7 @@ function 固定时间回复(变量){
                     超级点击("重新开始")
                 }
                 if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
+                    toastLog("找到由于用户多次举报...")
                     账号参数 = "账号已死"
                 }
             }
@@ -413,6 +416,7 @@ function 固定时间回复(变量){
                         超级点击("重新开始")
                     }
                     if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
+                        toastLog("找到由于用户多次举报...")
                         账号参数 = "账号已死"
                     }
                 }
@@ -438,7 +442,7 @@ function 固定时间回复(变量){
 
     } 
 }
-function 套路回复功能A(变量){
+/*function 套路回复功能A(变量){
     for(let a=0;a<回复等待时长;a++){
         sleep(2000)
         log("A等待时长===>"+a)
@@ -583,7 +587,7 @@ function 套路回复功能B(变量){
             break;
         }
     } 
-}
+}*/
 function 多开分身(){
     sleep(1000)
     launchApp("多开分身")
