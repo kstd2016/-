@@ -140,6 +140,10 @@ function 进入叔叔不约(){
             console.log("没有找到开始聊天控件...");
             sleep(1000)
         }
+        if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
+            接码模块()
+        }
+        else{超级点击("点击完成验证")}
     }
     for(let a=0;a<6;a++){
         sleep(5000)
@@ -193,6 +197,10 @@ function 进入叔叔不约(){
             else if(获取验证码=="3001"){获取验证码 = 易码API.获取验证码(登陆,"17968",获取号码)}
             else{break;}
         }
+        if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
+            接码模块()
+        }
+        else{超级点击("点击完成验证")}
     }
     //textContains("输入信息").exists()==true不可用
     if(text("反馈问题").exists()==true){
