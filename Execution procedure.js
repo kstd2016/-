@@ -255,6 +255,9 @@ function 开始聊天(){
             封装API.等待(1000,2000)
             进入叔叔不约()
         }
+        if(textContains("还没有VIP代码").exists()==true||descContains("还没有VIP代码").exists()==true){
+            超级点击("取消")
+        }
         for(let a=0;a<12;a++){
             if(textContains("请稍等").exists()==true||descContains("请稍等").exists()==true){
                 sleep(6000)
