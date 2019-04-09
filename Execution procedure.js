@@ -1,4 +1,5 @@
 let 封装API = require(engines.myEngine().cwd() +"/封装API.js");
+let 集成模块 = require(engines.myEngine().cwd() +"/集成模块.js");
 //叔叔不约滑块类型captchaType:1318
 toastLog("开始运行叔叔不约脚本...")
 if(!requestScreenCapture()){
@@ -6,15 +7,13 @@ if(!requestScreenCapture()){
     exit();
 }
 全局变量();
-launchApp("猎豹浏览器分身");
-封装API.等待(1000,2000);
-封装API.text("允许").click();
-封装API.text("跳过").click();
+容错()
+手机判断参数 = 集成模块.手机品牌判断()
 进入叔叔不约();
 for(let a=1;a<9999;a++){
     重新开始参数 = 0;
     返回主页参数++
-    if(返回主页参数>=66){
+    if(返回主页参数>=50){
         进入叔叔不约();
         开始聊天();
         返回主页参数 = 0
@@ -22,6 +21,7 @@ for(let a=1;a<9999;a++){
     else{
         log("聊天循环===>"+a)
         if(账号参数 == "账号已死"){
+            集成模块.流量卡切换IP(手机判断参数)
             删除分身APP();
             多开分身();
             制作分身();
@@ -44,9 +44,21 @@ function 全局变量(){
     接码数量 = 0;
     获取号码参数 = 0;
     返回主页参数 = 0
+    浏览器 = "QQ浏览器"
 
-
-    var i = 0;
+    叔叔不约重新开始保存路径 = "/sdcard/脚本图片/叔叔不约重新开始.png"
+    叔叔不约重新开始下载地址 = "http://a3.qpic.cn/psb?/V13HoQ6D224qoC/mXV9PcKh8SqJbGzJEuNndU.jLm4oWhO4Xxgp6Boxdjo!/b/dFIBAAAAAAAA&ek=1&kp=1&pt=0&bo=vAAsAAAAAAADF6I!&tl=1&vuin=1536343278&tm=1554541200&sce=60-1-1&rf=viewer_4"
+    集成模块.网络图片下载(叔叔不约重新开始下载地址,叔叔不约重新开始保存路径)
+    叔叔不约反馈问题保存路径 = "/sdcard/脚本图片/叔叔不约反馈问题.png"
+    叔叔不约反馈问题下载地址 = "http://a1.qpic.cn/psb?/V13HoQ6D224qoC/IFQNiH5C*9VQYu6TKaVspvBJtjnM4PHRVFLoG08M4x8!/b/dLgAAAAAAAAA&ek=1&kp=1&pt=0&bo=wAAtAAAAAAADF98!&tl=1&vuin=1536343278&tm=1554541200&sce=60-1-1&rf=viewer_4"
+    集成模块.网络图片下载(叔叔不约反馈问题下载地址,叔叔不约反馈问题保存路径)
+    叔叔不约离开保存路径 = "/sdcard/脚本图片/叔叔不约离开.png"
+    叔叔不约离开下载地址 = "http://a3.qpic.cn/psb?/V13HoQ6D224qoC/OQmUVMXc45BW*tYGEWMxNIHJd3DfPp1gmUXdB3DDpl4!/b/dL4AAAAAAAAA&ek=1&kp=1&pt=0&bo=XQAtAAAAAAADF0I!&tl=1&vuin=1536343278&tm=1554541200&sce=60-1-1&rf=viewer_4"
+    集成模块.网络图片下载(叔叔不约离开下载地址,叔叔不约离开保存路径)
+    叔叔不约开始聊天保存路径 = "/sdcard/脚本图片/叔叔不约开始聊天.png"
+    叔叔不约开始聊天下载地址 = "http://m.qpic.cn/psb?/V13HoQ6D224qoC/Q*zKWf*KnsoW.Lflg3mX*VpRMs.RqLNjGWNkjSq1LGs!/b/dLYAAAAAAAAA&bo=xgAtAAAAAAADB8k!&rf=viewer_4"
+    集成模块.网络图片下载(叔叔不约开始聊天下载地址,叔叔不约开始聊天保存路径)
+    /*var i = 0;
     var 同步参数 = [];
     套路回复 = [];
     var 读取文本 = files.read("/sdcard/叔叔不约话术.txt");
@@ -62,7 +74,9 @@ function 全局变量(){
     套路回复[1] = 话术1.split("|");
     套路回复[2] = 话术2.split("|");
     套路回复[3] = 话术3.split("|");
-
+    套路回复[1] = "你好，小哥哥| 你好呀，小哥哥|小哥哥好".split("|")
+    套路回复[2] = "连麦玩吗？有点想|玩连麦爱爱吗? 有点想|连麦爱爱吗,我想试试".split("|")
+    套路回复[3] = "要么∨聊吧|薇聊吗,方便点|∨聊吧,方便点|要不薇聊吧".split("|")
 
     var i = 0;
     var 同步参数 = [];
@@ -79,27 +93,43 @@ function 全局变量(){
     易码账号 = 同步参数[3];
     易码密码 = 同步参数[4];
     联众账号 = 同步参数[5];
-    联众密码 = 同步参数[6];
+    联众密码 = 同步参数[6];*/
+    套路回复 = [];
+    套路回复[1] = "好啊,we✘聊吧,说话方便些|好啊,we✘聊吗,说话方便点".split("|")
+    //套路回复[1] = "你好，小哥哥| 你好呀，小哥哥|小哥哥好".split("|")
+    //套路回复[2] = "连麦玩吗？有点想|玩连麦爱爱吗? 有点想|连麦爱爱吗,我想试试".split("|")
+    //套路回复[3] = "要么∨聊吧|薇聊吗,方便点|∨聊吧,方便点|要不薇聊吧".split("|")
+    叔叔不约表情 = Array("😄","😃","😀","😊","😉","😍","😘","😚","😗","😙","😜","😝","😛","😳"
+    ,"😁","😔","😌","😒","😞","😣","😢","😂","😭","😪","😥","😰","😅","😓","😩","😫","😨","😱"
+    ,"😠","😡","😤","😖","😆","😋","😷","😎","😴","😵","😲","😟","😦","😧","😈","😮","😬","😐"
+    ,"😕","😯","😶","😇","😏","😑","😯","😶","😇","😏","😑","👲","👳","👮","👷","💂","👶")
+    易码账号 = "kstd2016";
+    易码密码 = "1987223";
+    联众账号 = "kstd2016";
+    联众密码 = "Wentao1987223";
+    qq= "ссЬЬ¹995º²"
 }
 function 超级点击(变量){
         if(descContains(变量).exists()==true){封装API.desc(变量).click()}
         else if(textContains(变量).exists()==true){封装API.text(变量).click()}
 }
 function 进入叔叔不约(){
+    集成模块.清理手机缓存(手机判断参数)
     获取号码参数 = 0
-    for(let a=0;a<12;a++){
-        sleep(5000)
+    launchApp("猎豹浏览器分身");
+    for(let a=0;a<20;a++){
+        sleep(3000)
         if(text("允许").exists()==true){
             封装API.text("允许").click();
         }
+        if(text("跳过").exists()){
+            封装API.text("跳过").click();
+        }
         if(text("菜单").exists()==true){
-            封装API.text("允许").click();
+            log("进入叔叔不约_找到菜单...")
             break;
         }
-        if(id("aks").exists()==true){
-            封装API.id("aks").click();
-            break;
-        }
+        //id("a06")浏览器菜单ID
         if(id("a06").exists()==true){
             if(text("窗口").exists()==true){}
             else{
@@ -113,15 +143,9 @@ function 进入叔叔不约(){
             break;
         }
     }
-    封装API.等待(500,1000)
-    if(text("允许").exists()==true){
-        封装API.text("允许").click();
-    }
-    封装API.等待(500,1000)
-    
-    if(text("允许").exists()==true){
-        封装API.text("允许").click();
-    }
+    sleep(1000)
+    封装API.text("允许").click();
+    sleep(1000)
     if(text("窗口").exists()==true){}
     else{
         返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
@@ -129,24 +153,27 @@ function 进入叔叔不约(){
     }
     封装API.id("aks").click()
     封装API.id("lh").click()
-    封装API.id("lk").click()
     if(text("立即提速").exists()==true){
         log("找到立即提速...")
         关闭提速框 = classNameContains("Button").clickable(true).idContains("al").findOne(2000)
         封装API.setView(关闭提速框).click()
     }
+    //id("lk")搜索框ID
+    封装API.id("lk").click()
     封装API.等待(1000,2000)
-    setText("http://www.unclenoway.com/#")
+    setText("http://www.unclenoway.com/#") 
     封装API.text("前往").click()
-    for(let a=0;a<10;a++){
-        if(text("听花开的树洞服务号").exists()==true||desc("听花开的树洞服务号").exists()==true){
-            返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
-            封装API.setView(返回浏览器主页).click()
-            封装API.等待(1000,2000)
-            进入叔叔不约()
-            break;
-        } 
-        else if(text("开始聊天").exists()==true||desc("开始聊天").exists()==true){
+    for(let a=0;a<6;a++){
+        sleep(10000)
+        if(集成模块.找图点击(叔叔不约离开保存路径,0,1570,320,200)=="找图成功"){
+            log("准备跳过进入叔叔不约模块...")
+            return;
+        }
+        else if(集成模块.找图点击(叔叔不约重新开始保存路径,0,1570,320,200)=="找图成功"){
+            log("准备跳过进入叔叔不约模块...")
+            return;
+        }
+        else if(集成模块.找图不点击(叔叔不约开始聊天保存路径,400,1250,300,200)=="找图成功"){
             封装API.等待(1000,2000)
             超级点击("女生")
             封装API.等待(1000,2000)
@@ -154,27 +181,34 @@ function 进入叔叔不约(){
             封装API.等待(1000,2000)
             超级点击("开始聊天")
             break;
+        }
+        else if(text("听花开的树洞服务号").exists()==true||desc("听花开的树洞服务号").exists()==true){
+            返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
+            封装API.setView(返回浏览器主页).click()
+            封装API.等待(1000,2000)
+            进入叔叔不约()
+            break;
         } 
         else if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
             toastLog("找到由于用户多次举报...")
             账号参数 = "账号已死"
             break;
         }                                                                                                                                                                                                
-        else{
-            console.log("没有找到开始聊天控件...");
-            sleep(1000)
-        }
         if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
             接码模块()
         }
-        else if(textContains("请点击").exists()==true&&idContains("reload").exists()==true){
+        else if(textContains("请点击").exists()==true||descContains("请点击").exists()==true&&idContains("reload").exists()==true){
             接码模块()
             }
         else{超级点击("点击完成验证")}
     }
-    for(let a=0;a<6;a++){
+    for(let a=0;a<12;a++){
         sleep(5000)
-        if(text("听花开的树洞服务号").exists()==true||desc("听花开的树洞服务号").exists()==true){
+        if(集成模块.找图点击(叔叔不约离开保存路径,0,1570,320,200)=="找图成功"){
+            log("准备跳过进入叔叔不约模块...")
+            return;
+        }
+        else if(text("听花开的树洞服务号").exists()==true||desc("听花开的树洞服务号").exists()==true){
             返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
             封装API.setView(返回浏览器主页).click()
             封装API.等待(1000,2000)
@@ -198,28 +232,22 @@ function 进入叔叔不约(){
             sleep(500)
             break;
         }
-        //||textContains("输入信息").exists()==true不可用
-        if(text("反馈问题").exists()==true){
+        else if(text("反馈问题").exists()==true){
             break
         }
         if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
             接码模块()
         }
-        else if(textContains("请点击").exists()==true&&idContains("reload").exists()==true){
+        else if(textContains("请点击").exists()==true||descContains("请点击").exists()==true&&idContains("reload").exists()==true){
             接码模块()
             }
         else{超级点击("点击完成验证")}
     }
     for(let a=0;a<10;a++){
         sleep(6000)
-        //textContains("输入信息").exists()==true不可用
         if(text("反馈问题").exists()==true){
             log("找到反馈问题...")
             break
-        }
-        else if(textContains("不可以开多个浏览器").exists()==true||descContains("不可以开多个浏览器").exists()==true){
-            超级点击("确定")
-            break;
         }
         if(textContains("由于实名制要求").exists()==true||descContains("由于实名制要求").exists()==true){
             log("找到由于实名制要求...")
@@ -231,18 +259,13 @@ function 进入叔叔不约(){
         if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
             接码模块()
         }
-        else if(textContains("请点击").exists()==true&&idContains("reload").exists()==true){
+        else if(textContains("请点击").exists()==true||descContains("请点击").exists()==true&&idContains("reload").exists()==true){
             接码模块()
             }
         else{超级点击("点击完成验证")}
     }
-    //textContains("输入信息").exists()==true不可用
     if(text("反馈问题").exists()==true){
         log("找到反馈问题控件...")
-    }
-    else if(textContains("不可以开多个浏览器").exists()==true||descContains("不可以开多个浏览器").exists()==true){
-        log("找到不可以开多个浏览器...")
-        超级点击("确定")
     }
     else{
         if(获取号码参数==1){
@@ -270,100 +293,111 @@ function 进入叔叔不约(){
 }
 function 开始聊天(){
     聊天判断 = 0
-    回复等待时长 = 8
+    回复等待时长 = 6
     变量A = 1
     聊天内容=[]
-    for(let b=1;b<4;b++){
+    for(let b=1;b<套路回复.length;b++){
         回复参数 = 0
-        时间变量 = 0
+        时间变量 = 0 
         请稍等参数 = 0
-        sleep(2000)
-        超级点击("开始聊天")
-        if(text("立即提速").exists()==true){
-            封装API.id("alh").click()
+        集成模块.找图点击(叔叔不约重新开始保存路径,0,1570,320,200);
+        集成模块.找图点击(叔叔不约开始聊天保存路径,400,1250,300,200)
+        if(textContains("无响应").exists()&&textContains("确定").exists()){
+            封装API.textCon("确定").click();
+            进入叔叔不约();
         }
-        if(text("窗口").id("bku").exists()==true){
-            log("找到浏览器窗口控件...");
-            返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
-            封装API.setView(返回浏览器主页).click()
-            封装API.等待(1000,2000)
-            进入叔叔不约()
+        if(text("窗口").exists()==true&&text("菜单").exists()==true){
+            toastLog("找到窗口还有菜单,判断在浏览器主页...")
+            this.进入叔叔不约();
             break;
         }
-        if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
+        if(descContains("请稍等").exists()==true){
+            sleep(9999)
+            if(descContains("请稍等").exists()==true){
+                log("长时间找到请稍等控件,准备重新进入叔叔不约...")
+                进入叔叔不约()
+            }
+        }
+        else if(text("立即提速").exists()==true){
+            封装API.id("alh").click()
+        }
+        else if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
             toastLog("找到由于用户多次举报...")
             账号参数 = "账号已死"
+            return
         }
-        if(textContains("由于实名制要求").exists()==true||descContains("由于实名制要求").exists()==true){
+        else if(textContains("由于实名制要求").exists()==true||descContains("由于实名制要求").exists()==true){
             log("找到由于实名制要求...")
             返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
             封装API.setView(返回浏览器主页).click()
             封装API.等待(1000,2000)
             进入叔叔不约()
         }
-        if(textContains("还没有VIP代码").exists()==true||descContains("还没有VIP代码").exists()==true){
+        else if(text("听花开的树洞服务号").exists()==true||desc("听花开的树洞服务号").exists()==true){
+            log("找到听花开的树洞服务号,准备重新进入叔叔不约...")
+            进入叔叔不约()
+            break;
+        } 
+        else if(textContains("还没有VIP代码").exists()==true||descContains("还没有VIP代码").exists()==true){
+            log("找到还没有VIP代码...")
             超级点击("取消")
         }
-        for(let a=0;a<12;a++){
-            if(textContains("请稍等").exists()==true||descContains("请稍等").exists()==true){
-                sleep(6000)
-                请稍等参数++
-                if(请稍等参数>=10){
-                    log("长时间在请稍等页面...").
-                    返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
-                    封装API.setView(返回浏览器主页).click()
-                    封装API.等待(1000,2000)
-                    进入叔叔不约()
-                    break;
-                }
-            }
-            else{sleep(20)}
-        }
         if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
-            接码模块()
+            log("找到拖动下方滑块完成拼图...");
+            接码模块();
         }
-        else if(textContains("请点击").exists()==true&&idContains("reload").exists()==true){
-            接码模块()
+        else if(textContains("请点击").exists()==true||descContains("请点击").exists()==true&&idContains("reload").exists()==true){
+            log("找到请点击...");
+            接码模块();
         }
-        else{超级点击("点击完成验证")}
-        if(聊天判断 == "对方离开了"){
-            超级点击("离开")
-            超级点击("验证")
-            sleep(1000)
-            超级点击("确定")
-            sleep(2000)
-            超级点击("重新开始")
-            sleep(1000)
-            break;
-        }
-        if(text("反馈问题").exists()==true||desc("反馈问题").exists()==true){
-            log("找到反馈问题...")
-            超级点击("离开")
-            超级点击("验证")
-            超级点击("重新开始")
-        }
-        if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
-            break;
-        }
-        if(账号参数 == "账号已死"){
-            break;
-        }
-        固定时间回复(b)
+        else{超级点击("点击完成验证");}
+        if(账号参数=="账号已死"){
+            return;
+        };
+        固定时间回复(b);
     }
 }
 function 输入微信号(){
+    //str = qq.split("")
+    延迟=1000
+    大延迟 = 3000
+    输入判断 = 0
+    qq长度 = qq.length
+    //qq.substring(0,2)
+    //qq.substring(3,5)
+    //qq.substring(6,8)
     sleep(8000)
-    setText(微信1)
-    sleep(1000)
+    /*setText(qq.substring(0,2));
+    sleep(大延迟)
     超级点击("发送")
-    sleep(1000)
-    setText(微信2)
-    sleep(1000)
+    sleep(大延迟)
+    setText(qq.substring(2,4));
+    sleep(大延迟)
     超级点击("发送")
-    sleep(1000)
-    setText(微信3)
-    sleep(1000)
+    sleep(大延迟)
+    setText(qq.substring(4,6));
+    sleep(大延迟)
     超级点击("发送")
+    sleep(大延迟)
+    if(qq.length>8){
+        setText(qq.substring(6,8));
+        sleep(大延迟)
+        超级点击("发送")
+        setText(qq.substring(8,qq.length));
+        sleep(大延迟)
+        超级点击("发送")
+    }
+    else{
+        setText(qq.substring(6,8));
+    }*/
+    setText(qq)
+    sleep(延迟)
+    超级点击("发送")
+    //sleep(大延迟)
+    //setText("字母跟数字一起就是了哦~");
+    //sleep(延迟)
+    //超级点击("发送")
+    //sleep(大延迟)
     toastLog("输入微信号结束...")
     sleep(6000)
     超级点击("离开")
@@ -378,13 +412,6 @@ function 固定时间回复(变量){
     for(let a=0;a<回复等待时长;a++){
         sleep(1000)
         时间变量++
-        if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
-            接码模块()
-        }
-        else if(textContains("请点击").exists()==true&&idContains("reload").exists()==true){
-            接码模块()
-        }
-        else{超级点击("点击完成验证")}
         /*if(text("开始聊天").exists()==true||desc("开始聊天").exists()==true){
             封装API.等待(1000,2000)
             超级点击("女生")
@@ -393,15 +420,6 @@ function 固定时间回复(变量){
             封装API.等待(1000,2000)
             超级点击("开始聊天")
         }*/
-        if(text("听花开的树洞服务号").exists()==true||desc("听花开的树洞服务号").exists()==true){
-            返回浏览器主页 = className("TextView").boundsInside(598,1724,914,1920).findOne(2000)
-            封装API.setView(返回浏览器主页).click()
-            封装API.等待(1000,2000)
-            进入叔叔不约()
-        }
-        if(textContains("不可以开多个浏览器").exists()==true||descContains("不可以开多个浏览器").exists()==true){
-            超级点击("确定")
-        }
         if(text("确定离开?").exists()==true||desc("确定离开?").exists()==true){
             超级点击("取消")
         }
@@ -424,14 +442,14 @@ function 固定时间回复(变量){
                 c++
                 if(element.text()=="对方离开了。"){
                     log("对方离开了...")
-                    聊天判断 = "对方离开了"
+                    聊天判断="对方离开了"
                 }
                 if(desc("重新开始").exists()==true||text("重新开始").exists()==true){
                     超级点击("重新开始")
                 }
                 if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
                     toastLog("找到由于用户多次举报...")
-                    账号参数 = "账号已死"
+                    账号参数="账号已死"
                 }
             }
         });
@@ -445,7 +463,7 @@ function 固定时间回复(变量){
                     c++
                     if(element.desc()=="对方离开了。"){
                         log("对方离开了...")
-                        聊天判断 = "对方离开了"
+                        聊天判断="对方离开了"
     
                     }
                     if(desc("重新开始").exists()==true||text("重新开始").exists()==true){
@@ -453,7 +471,7 @@ function 固定时间回复(变量){
                     }
                     if(textContains("由于用户多次举报").exists()==true||descContains("由于用户多次举报").exists()==true){
                         toastLog("找到由于用户多次举报...")
-                        账号参数 = "账号已死"
+                        账号参数="账号已死"
                     }
                 }
             });
@@ -467,10 +485,19 @@ function 固定时间回复(变量){
         if(消息=="请进行验证~"){
             接码模块()
         }
-        if(聊天判断 == "对方离开了"){
+        else if(消息==null){
+            log("没有获取到消息,准备重新进入叔叔不约...")
+            进入叔叔不约()
+        }
+        if(聊天判断=="对方离开了"){
+            log("固定时间回复模块,找到聊天判断对方离开了...")
+            集成模块.找图点击(叔叔不约离开保存路径,0,1570,320,200)
+            sleep(2000)
+            集成模块.找图点击(叔叔不约重新开始保存路径,0,1570,320,200)
+            sleep(1000)
             break;
         }
-        if(账号参数 == "账号已死"){
+        if(账号参数=="账号已死"){
             break;
         }
         if(回复消息 == "无关键词回复"){
@@ -596,7 +623,7 @@ function 多开分身(){
         //N次循环都没有找到,重新打开多开分身
         多开分身添加变量++
         if(多开分身添加变量>30){
-            this.返回主界面();
+            集成模块.返回主界面();
             launchApp("多开分身")
             sleep(1000)
             封装API.text("允许").click();
@@ -639,7 +666,7 @@ function 多开分身(){
 function 制作分身(){
     sleep(1000)
     while(text("开始制作").exists()!=true){
-        this.返回主界面()
+        集成模块.返回主界面()
         this.多开分身()
     }
     封装API.text("去LOGO水印").click();
@@ -778,8 +805,19 @@ function 删除分身APP(){
     sleep(2000)
     home();
 }
+function 容错(){
+    threads.start(function(){
+        while(true){
+            sleep(1000)
+            if(textContains("不可以开多个浏览器").exists()==true||descContains("不可以开多个浏览器").exists()==true){
+                超级点击("确定")
+            }
+        }
+    });
+}
 function 接码模块(){
     for(let a=0;a<10;a++){
+        封装API.idCon("reload").click()
         sleep(3000)
         if(desc("拖动下方滑块完成拼图").exists()==true||text("拖动下方滑块完成拼图").exists()==true){
             log("找到滑块,准备拼图...")
@@ -791,7 +829,7 @@ function 接码模块(){
                 log(滑块按钮坐标X1)
                 var 滑块按钮坐标Y1 = 滑块按钮坐标.top
                 log(滑块按钮坐标Y1)
-                if(滑块按钮坐标X1>="100"){
+                if(滑块按钮坐标X1>="100"&&滑块按钮坐标X1<="200"){
                     log("1号方案")
                     滑块 = className("Image").idContains("slideBg").findOne(1000)
                     if(滑块!=null){
@@ -811,7 +849,7 @@ function 接码模块(){
                             log("拼图坐标X===>"+拼图坐标X);
                             sleep(1000)
                             var ra = new RootAutomator();
-                            ra.swipe(滑块按钮坐标X1+10,滑块按钮坐标Y1+10,拼图坐标X+15,滑块按钮坐标Y1+10,2000)
+                            ra.swipe(滑块按钮坐标X1+10,滑块按钮坐标Y1+10,拼图坐标X+random(0,20),滑块按钮坐标Y1+10+random(0,10),random(1500,2000))
                             sleep(1000)
                             ra.exit()
                         }
@@ -843,7 +881,7 @@ function 接码模块(){
                             log("拼图坐标X===>"+拼图坐标X);
                             sleep(1000)
                             var ra = new RootAutomator();
-                            ra.swipe(136,1279,拼图坐标X+15,1279,2000)
+                            ra.swipe(136,1279,拼图坐标X+10+random(0,20),1279+random(0,10),random(1500,2000))
                             sleep(1000)
                             ra.exit()
                         }
@@ -856,8 +894,9 @@ function 接码模块(){
             }
             else{封装API.idCon("reload").click()}
         }
-        else if(textContains("请点击").exists()==true&&idContains("reload").exists()==true){
-            滑块 = classNameContains("android.view.View").boundsInside(21,486,1053,1518).idContains("tcaptcha_iframe").findOne(1000)
+        else if(textContains("请点击").exists()==true||descContains("请点击").exists()==true&&idContains("reload").exists()==true){
+            log("找到点击图片验证...")
+            滑块 = classNameContains("android.view.View").boundsInside(0,450,1100,1600).idContains("tcaptcha").findOne(1000)
             if(滑块!=null){
                 滑块图片 = 滑块.bounds()
                 console.log(滑块图片);
@@ -880,5 +919,9 @@ function 接码模块(){
             }
         }
         else{break;}
+        if(a>=9){
+            log("连续接码模块失败,准备重新进入叔叔不约");
+            进入叔叔不约();
+        }
     }
 }
