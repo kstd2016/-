@@ -14,7 +14,7 @@ let 封装API = {
     }, //不封装则为随机数不重复
     等待 : function(a,b){
         if(b==null){
-            sleep(a);
+            sleep(a+random(0,200));
         }
         else{
             t = random(a,b);
