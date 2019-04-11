@@ -1,6 +1,4 @@
 let 封装API = {
-    //趣看点14-16
-    //东方头条7-9
     uiView:null,
     name:null,
     aVersion:device.release.split("."),
@@ -15,8 +13,13 @@ let 封装API = {
         return r}
     }, //不封装则为随机数不重复
     等待 : function(a,b){
-        t = random(a,b);
-        sleep(t);
+        if(b==null){
+            sleep(a);
+        }
+        else{
+            t = random(a,b);
+            sleep(t);
+        }
     },
     随机上滑 : function(){
         let rdm = new java.util.Random();
@@ -143,38 +146,33 @@ let 封装API = {
         return this;
     },
     click : function(){
-        if(封装API.aVersion[0] >= "7"){
-            if(this.uiView == null){
-                console.log(this.name + "===>没有找到");
-                return false;
+        if(this.uiView == null){
+            console.log(this.name + "===>没有找到");
+            return false;
+        }
+        else{
+            if(this.uiView.clickable()==true){
+                封装API.uiView.click();
             }
             else{
-                console.log(this.name + "===>开始点击");
-                let widget = 封装API.uiView
-                this.等待(100,500)
-                if(widget.bounds().centerX() >= 0 && widget.bounds().centerY() >= 0){
-                    click(widget.bounds().centerX(), widget.bounds().centerY());
-                }else{console.log(this.name + "===>坐标为负,无法点击");}
-            }
-        }else if(封装API.aVersion[0] < "7"){
-            if(this.uiView == null){
-                console.log(this.name + "===>没有找到");
-                return false;
-            }
-            else{
-                console.log(this.name + "===>开始点击");
-                let widget = 封装API.uiView
-                if(widget.clickable()==true){
-                    widget.click();
-                }
-                else{
+                if(封装API.aVersion[0] >= "7"){
+                    console.log(this.name + "===>开始点击");
+                    let widget = 封装API.uiView;
+                    this.等待(100,500);
+                    if(widget.bounds().centerX() >= 0 && widget.bounds().centerY() >= 0){
+                        click(widget.bounds().centerX(), widget.bounds().centerY());
+                    }
+                    else{console.log(this.name + "===>坐标为负,无法点击");}
+                }else if(封装API.aVersion[0] < "7"){
+                    console.log(this.name + "===>开始点击");
+                    let widget = 封装API.uiView;
                     ra = new RootAutomator();
                     if(widget.bounds().centerX() >= 0 && widget.bounds().centerY() >= 0){
                         ra.press(widget.bounds().centerX(), widget.bounds().centerY(),200);
                         sleep(500);
-                        ra.exit()
-    
-                    }else{console.log(this.name + "===>坐标为负,无法点击");}
+                        ra.exit();
+                    }
+                    else{console.log(this.name + "===>坐标为负,无法点击");}
                 }
             }
         }
@@ -217,12 +215,26 @@ let 封装API = {
         }
         return false;
     },  
-    swipe : function(a,b,c,d,e){
+    swipe : function(x1,y1,x2,y2,time){
         if(封装API.aVersion[0] >= "7"){
-            swipe(a,b,c,d,e);
+                if(x2-x1<=10){
+                    var XR1 = x1+random(-10,10)
+                }
+                else{
+                    var XR1 = random((x2-x1)/3,(x2-x1)/2)
+                }
+                if(y2-y1<=10){
+                    var YR1 = y1+random(-10,10)
+                }
+                else{
+                    var YR1 = random((y2-y1)/3,(y2-y1)/2)
+                }
+                gesture(random(time/3,time/2),[x1,y1],[XR1,YR1],[x2,y2])
         }else{
-            Swipe(a,b,c,d,e);
-            sleep(500); 
+            var ra = new RootAutomator();
+            ra.swipe(x1,y1,x2,y2,time);
+            sleep(2000); 
+            ra.exit()
         }
     },
     超级点击:function(变量){
